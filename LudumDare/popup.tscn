@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://font/new_dynamicfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://new_theme.tres" type="Theme" id=2]
+[ext_resource path="res://levels/Panel.gd" type="Script" id=3]
+[ext_resource path="res://font/myfont.ttf.tres" type="DynamicFontData" id=4]
+
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 0.435294, 0.713726, 1, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 0.164706, 0.164706, 0.164706, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=16]
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=20]
+bg_color = Color( 0.262745, 0.262745, 0.262745, 1 )
+border_color = Color( 1, 1, 1, 1 )
+
+[node name="Panel" type="Panel"]
+margin_left = 326.0
+margin_top = 316.0
+margin_right = 600.0
+margin_bottom = 479.0
+script = ExtResource( 3 )
+
+[node name="ColorPanel" type="Panel" parent="."]
+margin_right = 284.0
+margin_bottom = 173.0
+custom_styles/panel = SubResource( 17 )
+
+[node name="TutorialPanel" type="Panel" parent="."]
+margin_left = -3.0
+margin_top = -3.0
+margin_right = 279.0
+margin_bottom = 168.0
+custom_styles/panel = SubResource( 19 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TutorialPanel"]
+margin_left = 14.0
+margin_top = 18.0
+margin_right = 263.0
+margin_bottom = 152.0
+custom_fonts/normal_font = SubResource( 16 )
+text = "Hi my text hee"
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.471
+anchor_top = 0.647
+anchor_right = 0.471
+anchor_bottom = 0.647
+margin_left = -48.054
+margin_top = 7.53899
+margin_right = 47.946
+margin_bottom = 46.539
+theme = ExtResource( 2 )
+custom_colors/font_color_hover = Color( 0.435294, 0.713726, 1, 1 )
+custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = SubResource( 20 )
+text = "OK"
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

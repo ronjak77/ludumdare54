@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://blend.gdshader" type="Shader" id=1]
+[ext_resource path="res://draggable2.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = ExtResource( 1 )
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 34.0
+
+[node name="Item3" type="KinematicBody2D"]
+position = Vector2( 200, 100 )
+script = ExtResource( 2 )
+
+[node name="Icon" type="Sprite" parent="."]
+material = SubResource( 5 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 4 )

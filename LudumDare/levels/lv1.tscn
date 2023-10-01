@@ -1,0 +1,291 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://GoalArea.gd" type="Script" id=1]
+[ext_resource path="res://popup.tscn" type="PackedScene" id=2]
+[ext_resource path="res://font/Rubik-SemiBold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://level items/1/Rectangle 24.png" type="Texture" id=4]
+[ext_resource path="res://levels/itemspawner.gd" type="Script" id=5]
+[ext_resource path="res://levels/ResourceAmounts.gd" type="Script" id=6]
+[ext_resource path="res://font/new_dynamicfont.tres" type="DynamicFont" id=7]
+[ext_resource path="res://font/Rubik-Bold.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://timer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://levels/giving_button.gd" type="Script" id=10]
+[ext_resource path="res://new_theme.tres" type="Theme" id=11]
+[ext_resource path="res://levels/autoclicker_button.gd" type="Script" id=12]
+[ext_resource path="res://levels/grid_expansion_button.gd" type="Script" id=13]
+[ext_resource path="res://levels/ascension_button.gd" type="Script" id=14]
+[ext_resource path="res://mouse_detector.tscn" type="PackedScene" id=15]
+[ext_resource path="res://levels/Panel2.gd" type="Script" id=16]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 191.067, 186.913 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 102.5, 145.5 )
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0.901961, 0.901961, 0.901961, 1 )
+
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 24
+extra_spacing_char = 3
+font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.72549, 0.72549, 0.72549, 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.831373, 0.831373, 0.831373, 1 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.698039, 0.698039, 0.698039, 1 )
+
+[sub_resource type="DynamicFont" id=15]
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 1
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 1, 1, 1, 1 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BG" type="ColorRect" parent="."]
+margin_left = -1.0
+margin_top = -1.0
+margin_right = 947.0
+margin_bottom = 536.0
+color = Color( 0.901961, 0.901961, 0.901961, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -4.0
+margin_right = 253.0
+margin_bottom = 536.0
+rect_pivot_offset = Vector2( -235, 254 )
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = 732.0
+margin_right = 948.0
+margin_bottom = 536.0
+rect_pivot_offset = Vector2( -235, 254 )
+
+[node name="detector" parent="." instance=ExtResource( 15 )]
+position = Vector2( 439, 140 )
+
+[node name="GoalArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2( 492, 248 )
+scale = Vector2( 0.3, 0.3 )
+collision_layer = 65535
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalArea"]
+process_priority = 1
+position = Vector2( -1.66144, -1.66147 )
+shape = SubResource( 5 )
+
+[node name="Sprite2" type="Sprite" parent="GoalArea"]
+modulate = Color( 0.941176, 0.941176, 0.941176, 1 )
+position = Vector2( 13.7068, 25.3374 )
+scale = Vector2( 13.4009, 12.9099 )
+texture = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="GoalArea"]
+margin_left = -253.0
+margin_top = -233.0
+margin_right = 256.0
+margin_bottom = 248.0
+
+[node name="Sprite" type="Sprite" parent="GoalArea"]
+position = Vector2( 0, 3.32291 )
+scale = Vector2( 10.1873, 10.1034 )
+texture = ExtResource( 4 )
+
+[node name="AreaSpawn" type="Node2D" parent="."]
+position = Vector2( -1, 0 )
+script = ExtResource( 5 )
+
+[node name="Area2D" type="Area2D" parent="AreaSpawn"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaSpawn/Area2D"]
+position = Vector2( 117.5, 357.5 )
+shape = SubResource( 7 )
+
+[node name="giving_button_bg" type="Panel" parent="."]
+margin_left = 49.0
+margin_top = 34.0
+margin_right = 193.0
+margin_bottom = 99.0
+custom_styles/panel = SubResource( 16 )
+
+[node name="giving_button_bg2" type="Panel" parent="giving_button_bg"]
+margin_left = 4.0
+margin_top = 5.0
+margin_right = 140.0
+margin_bottom = 60.0
+custom_styles/panel = SubResource( 17 )
+
+[node name="giving_button" type="Button" parent="."]
+margin_left = 55.0
+margin_top = 40.0
+margin_right = 189.0
+margin_bottom = 94.0
+theme = ExtResource( 11 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.227451, 0.227451, 0.227451, 1 )
+custom_fonts/font = SubResource( 8 )
+custom_styles/hover = SubResource( 13 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/focus = SubResource( 12 )
+custom_styles/normal = SubResource( 14 )
+text = "PLEASE"
+flat = true
+script = ExtResource( 10 )
+
+[node name="TimerContainer" type="VBoxContainer" parent="."]
+margin_left = 741.0
+margin_top = 403.0
+margin_right = 941.0
+margin_bottom = 523.0
+custom_constants/separation = 20
+
+[node name="UpgradeTitle" type="RichTextLabel" parent="."]
+margin_left = 764.0
+margin_top = 28.0
+margin_right = 888.0
+margin_bottom = 53.0
+rect_pivot_offset = Vector2( 93, 101 )
+theme = ExtResource( 11 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 15 )
+text = "CONSUME"
+
+[node name="Panel" type="Panel" parent="UpgradeTitle"]
+margin_left = -2.0
+margin_top = 22.0
+margin_right = 127.0
+margin_bottom = 30.0
+
+[node name="UpgradeTitle2" type="RichTextLabel" parent="."]
+margin_left = 760.0
+margin_top = 336.0
+margin_right = 884.0
+margin_bottom = 361.0
+rect_pivot_offset = Vector2( 93, 101 )
+theme = ExtResource( 11 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 15 )
+text = "UPGRADES"
+
+[node name="Panel" type="Panel" parent="UpgradeTitle2"]
+margin_left = -2.0
+margin_top = 22.0
+margin_right = 127.0
+margin_bottom = 30.0
+
+[node name="Panel3" type="Panel" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 6 )
+
+[node name="ResourceAmounts" type="RichTextLabel" parent="Panel3"]
+margin_left = 17.0
+margin_top = 130.0
+margin_right = 141.0
+margin_bottom = 207.0
+theme = ExtResource( 11 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 15 )
+
+[node name="ResourceTitle2" type="RichTextLabel" parent="Panel3"]
+margin_left = 17.0
+margin_top = 150.0
+margin_right = 141.0
+margin_bottom = 175.0
+theme = ExtResource( 11 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 15 )
+
+[node name="autoclicker_button" type="Button" parent="."]
+margin_left = 759.0
+margin_top = 379.0
+margin_right = 914.0
+margin_bottom = 404.0
+rect_min_size = Vector2( 155, 0 )
+theme = ExtResource( 11 )
+custom_fonts/font = ExtResource( 7 )
+text = "GENEROSITY"
+script = ExtResource( 12 )
+
+[node name="grid_button" type="Button" parent="."]
+margin_left = 759.0
+margin_top = 410.0
+margin_right = 914.0
+margin_bottom = 435.0
+rect_min_size = Vector2( 155, 0 )
+theme = ExtResource( 11 )
+custom_fonts/font = ExtResource( 7 )
+text = "AETHERIUM"
+script = ExtResource( 13 )
+
+[node name="ascension_button" type="Button" parent="."]
+margin_left = 759.0
+margin_top = 440.0
+margin_right = 914.0
+margin_bottom = 465.0
+rect_min_size = Vector2( 155, 0 )
+theme = ExtResource( 11 )
+custom_fonts/font = ExtResource( 7 )
+text = "ANDROMEDA"
+script = ExtResource( 14 )
+
+[node name="UpgradeList" type="GridContainer" parent="."]
+margin_left = 757.0
+margin_top = 62.0
+margin_right = 917.0
+margin_bottom = 255.0
+columns = 2
+
+[node name="maintimer" parent="." instance=ExtResource( 9 )]
+
+[node name="Panel" parent="." instance=ExtResource( 2 )]
+margin_left = 360.0
+margin_top = 348.0
+margin_right = 634.0
+margin_bottom = 511.0
+
+[node name="RichTextLabel" parent="Panel/TutorialPanel" index="0"]
+text = "Move items to center.
+Then click them.
+You get more items if you require."
+
+[node name="hidden" type="Panel" parent="."]
+margin_left = 750.0
+margin_top = 323.0
+margin_right = 932.0
+margin_bottom = 533.0
+custom_styles/panel = SubResource( 18 )
+script = ExtResource( 16 )
+
+[connection signal="body_entered" from="GoalArea" to="GoalArea" method="_on_GoalArea_body_entered"]
+[connection signal="body_exited" from="GoalArea" to="GoalArea" method="_on_GoalArea_body_exited"]
+[connection signal="pressed" from="giving_button" to="giving_button" method="_on_giving_button_pressed"]
+[connection signal="pressed" from="autoclicker_button" to="autoclicker_button" method="_on_autoclicker_button_pressed"]
+[connection signal="pressed" from="grid_button" to="grid_button" method="_on_grid_button_pressed"]
+[connection signal="pressed" from="ascension_button" to="ascension_button" method="_on_ascension_button_pressed"]
+
+[editable path="Panel"]
