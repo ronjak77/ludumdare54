@@ -1,6 +1,6 @@
 # ludumdare54
 
-This is my entry to the Ludum Dare 54 game jam. It's my first time participating. I made this game in 48 hours by myself.
+This is my entry to the Ludum Dare 54 game jam. It's my first time participating. **I made this game in 48 hours by myself.** The code quality is at a gamejam level: messy, lot of improvements to be made, some bugs. GDScript is not very familiar to me and I wanted to try the Godot engine, so it's basically a very challenging learning experience on a tight schedule. 
 
 You can play the game in browser in the [Ludum Dare website](https://ldjam.com/events/ludum-dare/54/space-of-no-space) which also has more info. To participate in the Compo format, the source code of the project needs to be public. 
 
